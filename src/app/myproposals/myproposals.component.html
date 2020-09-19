@@ -1,0 +1,21 @@
+<div *ngIf="users && users.length > 0">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Technology</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let u of users">
+        <tr *ngFor="let t of u.prop">
+            <td>{{u.name}}</td>
+            <td>{{u.email}}</td>
+            <td>{{t}}</td>
+            <td><button class="btn btn-primary" type="button" (click)="acceptProposal(u.key,t)" >Accept Proposal</button></td>
+        </tr>
+        
+    </tbody>
+</table>
+</div>

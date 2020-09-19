@@ -1,0 +1,25 @@
+<h2>Current Trainings</h2>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Technology</th>
+            <th>Progress</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let t of trainings">
+        <tr *ngFor="let tech of t.excercises">
+            <td>{{t.name}}</td>
+            <td>{{t.email}}</td>
+            <td>{{tech}}</td>
+            <td>{{t.payload.val()[tech].progress}}</td>
+            
+        </tr>
+        
+    </tbody>
+
+
+</table>

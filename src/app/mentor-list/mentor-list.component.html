@@ -1,0 +1,30 @@
+<p><input #query (keyup)="filter(query.value)" 
+    type="text" class="form-control" placeholder="Search.."></p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Experience</th>
+            <th>Technology</th>
+            <th>Fees</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let m of mentors">
+        
+        
+        <tr *ngFor="let t of m.payload.val().tech" >
+            <ng-container *ngIf=t.toLowerCase().includes(query.value.toLowerCase())>
+            <td >{{m.payload.val().name}}</td>
+            <td>{{m.payload.val().yoe}}</td>
+            <td>{{t}}</td>
+            <td>$500</td>
+            <td><button class="btn btn-primary" type="button" (click)="sendProposal(m.key,t)">Send Proposal</button></td>
+
+        </ng-container>
+           
+        </tr>
+        
+    </tbody>
+</table>
